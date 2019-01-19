@@ -1,10 +1,14 @@
 pipeline {
   agent any
+  parameters {
+    run description: '', filter: 'SUCCESSFUL', name: 'RUN', projectName: 'hex/demomon-devoptics/devoptics-build/master'
+  }
   stages {
     stage('Build') {
       steps {
-        step([$class: 'CopyArtifact', projectName: 'hat/demomon/devoptics-build/master'])
-        archiveArtifacts artifacts: '*.sh', fingerprint: true
+        devOpticsConsumes file: '', id: "devoptics-build-${env.}", 
+          jobName: "${RUN_JOBNAME}",
+          masterUrl: '', runId: '${RUN}', type: 'demo'
       }
     }
   }
