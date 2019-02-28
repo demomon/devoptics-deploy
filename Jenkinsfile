@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-    run description: '', filter: 'SUCCESSFUL', name: 'RUN', projectName: '../../devoptics-build/master'
+    run description: '', filter: 'SUCCESSFUL', name: 'RUN', projectName: 'joost/demomon4/devoptics-build/master'
   }
   stages {
     stage('Build') {
