@@ -1,0 +1,8 @@
+def RUN_NUMBER  = 1
+def RUN_JOBNAME = 'devoptics/demomon-2/devoptics-build/master'
+node {
+  stage('Consume') {
+    echo "Going to consume: devoptics-build-${RUN_NUMBER}"
+    gateConsumesRun jobName: "${RUN_JOBNAME}", runId: "${RUN_NUMBER}"
+  }
+}
